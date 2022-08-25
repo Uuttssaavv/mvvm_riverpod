@@ -1,16 +1,22 @@
-# flutter_project
+# Flutter demo with Riverpod
 
-A new Flutter project.
+## Project
+In this project we can login/register with the dummy api.
+In Dashboard page there is a bottom navigation bar,
+i. First is responsible for displaying and performing CRUD operation with products that is stored in local database that is Sqflite
+ii. In second tab, the profile information of the logged in user is displayed.
 
-## Getting Started
+<img height='300px' src="screen_shots/ss1.png">
 
-This project is a starting point for a Flutter application.
+<img height='300px' src="screen_shots/ss4.png">
 
-A few resources to get you started if this is your first Flutter project:
+### In First tab
+<b>Create </b>: To create new product click on + icon which is at the bottom-right corner of the screen. 
+Fill the form with title and description.
+<img height='300px' src="screen_shots/ss3.png">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<b> Update</b>: To update the product, simply click on the product and the form appears and you can update the records.
+<img height='300px' src="screen_shots/ss2.png">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<b>Delete </b>: To delete records, Swipe the item from right to left.
+<img height='300px' src="screen_shots/ss5.png">
