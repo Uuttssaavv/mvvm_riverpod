@@ -1,29 +1,31 @@
-class Product {
-  final int id;
+typedef ProductList = List<ProductModel>;
+
+class ProductModel {
+  final int? id;
   final String title;
   final String description;
   final DateTime dateAdded;
 
-  Product({
-    required this.id,
+  ProductModel({
+    this.id,
     required this.title,
     required this.description,
     required this.dateAdded,
   });
-  Product copyWith({
+  ProductModel copyWith({
     int? id,
     String? title,
     String? description,
     DateTime? dateAdded,
   }) =>
-      Product(
+      ProductModel(
         id: id ?? this.id,
         title: title ?? this.title,
         description: description ?? this.description,
         dateAdded: dateAdded ?? this.dateAdded,
       );
 
-  factory Product.fromMap(Map<String, dynamic> json) => Product(
+  factory ProductModel.fromMap(Map<String, dynamic> json) => ProductModel(
         id: json["id"],
         title: json["title"],
         description: json["description"],
