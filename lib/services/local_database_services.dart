@@ -14,7 +14,6 @@ class DatabaseService {
     if (_database != null) return _database!;
 
     _database = await _initDB('products.db');
-    print(_database?.isOpen);
     return _database!;
   }
 
@@ -39,31 +38,14 @@ CREATE TABLE $tableName (
 ''');
   }
 
-  Future<Product> create(Product product) async {
+  Future<ProductModel> create(ProductModel product) async {
     final db = await instance.database;
 
     final id = await db.insert(tableName, product.toMap());
     return product.copyWith(id: id);
   }
 
-  Future<Product> readNote(int id) async {
-    final db = await instance.database;
-
-    final maps = await db.query(
-      tableName,
-      columns: ProductDatabaseEntity.values,
-      where: '${ProductDatabaseEntity.id} = ?',
-      whereArgs: [id],
-    );
-
-    if (maps.isNotEmpty) {
-      return Product.fromMap(maps.first);
-    } else {
-      throw Exception('ID $id not found');
-    }
-  }
-
-  Future<List<Product>> readAllNotes() async {
+  Future<ProductList> getAllProducts() async {
     final db = await instance.database;
 
     const orderBy =
@@ -71,10 +53,10 @@ CREATE TABLE $tableName (
 
     final result = await db.query(tableName, orderBy: orderBy);
 
-    return result.map((json) => Product.fromMap(json)).toList();
+    return result.map((json) => ProductModel.fromMap(json)).toList();
   }
 
-  Future<int> update(Product product) async {
+  Future<int> update(ProductModel product) async {
     final db = await instance.database;
 
     return db.update(
