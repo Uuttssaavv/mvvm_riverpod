@@ -48,7 +48,7 @@ class ItemViewState extends ConsumerState {
                 },
                 child: ListTile(
                   leading: CircleAvatar(
-                    child: text(state.products[index].id!.toInt()),
+                    child: text(index + 1),
                   ),
                   title: text(product.title),
                   subtitle: text(product.description),
